@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "browser-sync": "^3.0.2",
     "gulp": "^4.0.2",

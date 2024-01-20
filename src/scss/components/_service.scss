@@ -1,0 +1,39 @@
+.sevice {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0;
+
+  & h2 {
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+    font-size: $sectionHeader;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr));
+    grid-gap: 2%;
+
+    // display: flex;
+    // justify-content: flex-start;
+    // align-items: center;
+    // flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .sevice {
+    & h2 {
+      margin-top: 3rem;
+    }
+
+    &__cards {
+      justify-content: flex-start;
+    }
+  }
+}

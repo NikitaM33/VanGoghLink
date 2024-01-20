@@ -1,0 +1,85 @@
+.bunner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $greyBg;
+
+  background-image: url('../../assets/img.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+  overflow: hidden;
+
+  &__header {
+    margin-left: 4%;
+    padding: 4rem 0;
+    font-weight: 600;
+  }
+
+  &__button {
+    width: 18.125rem;
+    height: 3.125rem;
+    margin-top: 2.5rem;
+    background: $main;
+    font-size: 1rem;
+    color: $white;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    &:hover {
+      background: lighten($main, 8%);
+    }
+  }
+}
+
+@media screen and (max-width: $mobileL) {
+  .bunner {
+    background-position: 5rem 0;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .bunner {
+    background-size: cover;
+    background-position: 20rem 0;
+
+    &__header {
+      max-width: 44rem;
+
+      & h1 {
+        max-width: 36rem;
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $laptopL) {
+  .bunner__header {
+    max-width: 44rem;
+  }
+}
+
+@media screen and (max-width: $laptopL) {
+  .bunner__header {
+    max-width: 45rem;
+    padding: 4rem 0;
+    font-size: 2.5rem;
+    margin-left: 2vw;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .bunner__header {
+    margin-left: 10vw;
+  }
+}
+
+@media screen and (min-width: 2186px) {
+  .bunner__header {
+    margin-left: 16vw;
+  }
+}

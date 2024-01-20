@@ -1,0 +1,31 @@
+.payBox {
+  position: fixed;
+  top: 62vh;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 13.5rem;
+  height: 5.375rem;
+  padding: 2rem 1.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: $white;
+  background: $main;
+  border-radius: 0.5rem 0 0 0.5rem;
+  cursor: pointer;
+  z-index: 5;
+
+  &:hover {
+    background: lighten($main, 8%);
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .payBox {
+    top: 67vh;
+    width: 9.5rem;
+    height: 4.375rem;
+    font-size: 0.9rem;
+  }
+}

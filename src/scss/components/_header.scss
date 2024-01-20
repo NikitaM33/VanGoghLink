@@ -1,0 +1,260 @@
+.header {
+  background: $white;
+  z-index: 7;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 4rem;
+    padding: 0.625rem 0;
+  }
+
+  &__logo {
+    z-index: 5;
+  }
+}
+
+.menu {
+  &__burger-icon {
+    display: none;
+  }
+
+  &__list {
+    & li {
+      position: relative;
+    }
+  }
+
+  &__link {
+    font-size: 1rem;
+
+    &:hover {
+      color: $main;
+    }
+  }
+
+  &__sub-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 14rem;
+    padding: 1.625rem 1.75rem;
+    background: $white;
+    opacity: 0;
+    z-index: 5;
+
+    & li {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid $lightGrey;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__sub-link {
+    &:hover {
+      color: $main;
+    }
+  }
+
+  &__arrow {
+    display: none;
+  }
+}
+
+// PC -----------------------------
+@media screen and (min-width: $tablet) {
+  // TO DO: fix bug
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__list {
+      display: flex;
+      align-items: center;
+
+      & li {
+        padding: 0.625rem 0;
+        margin: 0 2.25rem 0 0;
+      }
+    }
+
+    &__sub-list {
+      visibility: hidden;
+      pointer-events: none;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      & li {
+        margin: 0;
+      }
+    }
+
+    &__phone {
+      margin-left: 5rem;
+
+      & a {
+        font-weight: 600;
+        color: $main;
+
+        &:hover {
+          color: lighten($main, 8%);
+        }
+      }
+    }
+  }
+}
+
+// Mobile ------------------
+@media screen and (max-width: $tablet) {
+  .menu {
+    &__burger-icon {
+      position: relative;
+      display: block;
+      width: 1.875rem;
+      height: 1.125rem;
+      margin-left: 6rem;
+      cursor: pointer;
+      z-index: 5;
+
+      & span,
+      &:before,
+      &:after {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        background: $text;
+      }
+
+      &:before,
+      &:after {
+        content: '';
+      }
+
+      &:before {
+        top: 0;
+      }
+
+      &:after {
+        bottom: 0;
+      }
+
+      & span {
+        top: 50%;
+        transform: scale(1) translate(0, -50%);
+      }
+
+      &._active {
+        & span {
+          transform: scale(0) translate(0, -50%);
+        }
+
+        &:before {
+          top: 50%;
+          transform: rotate(-45deg) translate(0, -50%);
+        }
+
+        &:after {
+          bottom: 50%;
+          transform: rotate(45deg) translate(0, 50%);
+        }
+      }
+    }
+
+    &__body {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      padding: 8.25rem 1.875rem 1.875rem 1.875rem;
+      background: $bgDark;
+      overflow: auto;
+
+      &._active {
+        left: 0;
+      }
+    }
+
+    &__list {
+      & li {
+        flex-wrap: wrap;
+      }
+    }
+
+    & li {
+      margin: 0 0 1.875rem 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+
+    &__link,
+    &__subMenuLink {
+      font-size: 1.5rem;
+      color: $white;
+    }
+
+    &__sub-link {
+      color: $text;
+    }
+
+    &__sub-list {
+      flex: 1 1 100%;
+      display: none;
+      position: relative;
+      background: $white;
+    }
+  }
+
+  .menu__sub._active .menu__arrow {
+    transform: rotate(180deg);
+  }
+}
+
+@media screen and (max-width: 1540px) {
+  .menu__phone {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: $laptopL) {
+  .menu__list {
+    & li {
+      margin: 0 1.25rem 0 0;
+
+      &:last-child {
+        margin: 0 0.25rem 0 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1310px) {
+  .menu__phone {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1135px) {
+  .header__container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .header__container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
